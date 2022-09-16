@@ -1,19 +1,17 @@
-name: S
-ample
+name: Sample
 on: push
 
 jobs:
-  first_job:
-    runs-on: ubuntu-latest
-    - name: clean
-      run: make clean
+  runs-on: ubuntu-latest
+  steps:
+  - name: Checkout
+    uses: actions/checkout@v3
 
-  second_job:
-    runs-on: ubuntu-latest
-    - name: make
-      run: make
+  - name: clean
+    run: make clean
 
- last_job:
-    runs-on: ubuntu-latest
-    - name: exec
-      run: ./SimpleSample.exe
+  - name: make
+    run: make
+
+  - name: exec
+    run: ./SimpleSample.exe
