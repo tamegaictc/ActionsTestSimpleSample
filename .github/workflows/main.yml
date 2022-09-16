@@ -14,19 +14,11 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   first_job:
-    runs-on: windows-2019
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: run ps1File cmd
-        run: powershell ./SimpleSample.exe
-        shell: cmd
-
-      - name: run ps1File pwsh
-        run: powershell ./SimpleSample.exe
-        shell: pwsh
-
-      - name: run ps1File pwsh
-        run: powershell ./SimpleSample.exe
-        shell: powershell
+      - name: exec cmd
+        run: /bin/wine ./SimpleSample.exe
+        
