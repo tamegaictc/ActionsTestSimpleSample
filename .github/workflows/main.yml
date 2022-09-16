@@ -4,11 +4,12 @@ on: push
 
 jobs:
   first_job:
-    runs-on: windows-2019
+    runs-on: ubuntu-20.04
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
+<<<<<<< HEAD
       - name: Display hello world pwsh
         run: |
           write-host "hello world pwsh"
@@ -28,3 +29,8 @@ jobs:
       - name: run ps1File pwsh
         run: powershell -NoProfile -ExecutionPolicy Unrestricted ./helloworld.ps1
         shell: pwsh
+=======
+      - name: exec cmd
+        run: /bin/wine ./SimpleSample.exe
+        
+>>>>>>> 24108284724d92c0b0fa6d5d50af81368c255195
