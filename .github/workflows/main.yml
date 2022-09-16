@@ -1,25 +1,19 @@
-name: Sample
-
+name: S
+ample
 on: push
 
 jobs:
   first_job:
-    runs-on: windows-2019
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v3
+    runs-on: ubuntu-latest
+    - name: clean
+      run: make clean
 
+  second_job:
+    runs-on: ubuntu-latest
+    - name: make
+      run: make
+
+ last_job:
+    runs-on: ubuntu-latest
     - name: exec
       run: ./SimpleSample.exe
-
-    - name: exec cmd
-      run: ./SimpleSample.exe
-      shell: cmd
-
-    - name: exec pwsh
-      run: ./SimpleSample.exe
-      shell: pwsh
-
-    - name: exec powershell
-      run: ./SimpleSample.exe
-      shell: powershell
