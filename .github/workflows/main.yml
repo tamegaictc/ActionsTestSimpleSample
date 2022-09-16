@@ -2,16 +2,11 @@ name: Sample
 on: push
 
 jobs:
-  runs-on: ubuntu-latest
-  steps:
-  - name: Checkout
-    uses: actions/checkout@v3
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
 
-  - name: clean
-    run: make clean
-
-  - name: make
-    run: make
-
-  - name: exec
-    run: ./SimpleSample.exe
+    - name: exec
+      run: ./SimpleSample.exe
