@@ -9,11 +9,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: exec
+        run: |
+          write-host "hello world pwsh"
+          $PSVersionTable
+        shell: pwsh
+
+      - name: Display hello world powershell
+        run: |
+          write-host "hello world pwsh"
+          $PSVersionTable
+        shell: powershell
+
       - name: run ps1File cmd
-        run: powershell -NoProfile -ExecutionPolicy Unrestricted ./SimpleSample.exe
+        run: powershell -NoProfile -ExecutionPolicy Unrestricted ./../../SimpleSample.exe
         shell: cmd
 
       - name: run ps1File pwsh
-        run: powershell -NoProfile -ExecutionPolicy Unrestricted ./SimpleSample.exe
+        run: powershell -NoProfile -ExecutionPolicy Unrestricted ./../../SimpleSample.exe
         shell: pwsh
         
