@@ -6,9 +6,20 @@ jobs:
   first_job:
     runs-on: ubuntu-latest
     steps:
-    - name: exec
+    - name: Checkout
       uses: actions/checkout@v3
-    - run: ls -l
-    - run: ls -l ../
-    - run: ls -l ../../
-    - run: ls -l $HOME\work\ActionsTestSimpleSample
+
+    - name: exec
+      run: ./SimpleSample.exe
+
+    - name: exec cmd
+      run: ./SimpleSample.exe
+      shell: cmd
+
+    - name: exec pwsh
+      run: ./SimpleSample.exe
+      shell: pwsh
+
+    - name: exec powershell
+      run: ./SimpleSample.exe
+      shell: powershell
