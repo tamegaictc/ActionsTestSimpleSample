@@ -8,9 +8,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: clean
-      run: make clean
-
     - name: make
       run: make
 
