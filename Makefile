@@ -23,7 +23,7 @@ LDFLAGS = -lpthread
 SRC_DIR = $(BASE_DIR)/src
 
 #default target name
-TARGET = $(TARGET_BASE).exe
+TARGET = $(TARGET_BASE).out
 
 #default TECS generator
 TECSGEN_EXE = tecsgen/tecsgen.rb
