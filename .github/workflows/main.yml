@@ -1,9 +1,9 @@
 name: Sample
-on:
-  push:
+name: Sample
+on: push
 
 jobs:
-  Build1:
+  Explore-GitHub-Actions:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
@@ -12,9 +12,5 @@ jobs:
     - name: make
       run: make
 
-  Build2:
-    runs-on: windows-latest
-    needs: Build1
-    steps:
     - name: exec
       run: ./SimpleSample.exe
