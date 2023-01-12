@@ -17,12 +17,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
-    - name: make
-      run: make
-
-    - name: exec
-      run: ./SimpleSample.out
-
     - name: upload
       uses: actions/upload-pages-artifact@v1
       with:
