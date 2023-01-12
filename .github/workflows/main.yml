@@ -14,14 +14,14 @@ jobs:
     - name: exec
       run: ./SimpleSample.out
 
-    - name: HTML Preview
+    - name: html to pdf
       uses: markwilson/html2pdf@v1.0
       with:
         htmlPath: './info/index.html'
         pdfName: 'test'
 
-    - name: test
-      run: ls -l
-
-    - name: test2
-      run: ls -l ./info
+    - name: upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: pdfReport
+        path: /github/workspace/dist/test.pdf
