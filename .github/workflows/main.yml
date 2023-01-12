@@ -15,13 +15,14 @@ jobs:
       run: ./SimpleSample.out
 
     - name: html to pdf
-      uses: markwilson/html2pdf@v1.0
+      uses: fifsky/html-to-pdf-action@master
       with:
-        htmlPath: './info/index.html'
-        pdfName: 'test'
+        htmlFile:   ./info/index.html
+        outputFile: ./info/info.pdf
+        pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
 
     - name: upload
       uses: actions/upload-artifact@v3
       with:
         name: pdfReport
-        path: /github/workspace/dist/test.pdf
+        path: ./info
