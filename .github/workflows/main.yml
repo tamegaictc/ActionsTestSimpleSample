@@ -20,7 +20,6 @@ jobs:
     - name: upload
       uses: actions/upload-pages-artifact@v1
       with:
-        name: UnitTest report
         path: ./info/
 
   deploy:
