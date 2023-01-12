@@ -17,10 +17,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3
 
+    - name: test
+      run: cp -r ./info ./test
+
     - name: upload
       uses: actions/upload-pages-artifact@v1
       with:
-        path: ./info/
+        path: ./test/
 
   deploy:
     environment:
