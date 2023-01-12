@@ -1,8 +1,19 @@
 name: Sample
 on: push
 
+workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
-  Explore-GitHub-Actions:
+  build:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
@@ -14,8 +25,13 @@ jobs:
     - name: exec
       run: ./SimpleSample.out
 
-    - name: HTML Preview
-      id: html_preview
-      uses: pavi2410/html-preview-action@v2
-      with:
-        html_file: './info/index.html'
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-20.04
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
