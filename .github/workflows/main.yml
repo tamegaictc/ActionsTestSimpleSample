@@ -14,8 +14,8 @@ jobs:
     - name: exec
       run: ./SimpleSample.out
 
-    - name: HTML Preview
-      id: html_preview
-      uses: pavi2410/html-preview-action@v2
+    - name: Read coverage summary
+      id: coverage-summary
+      uses: juliangruber/read-file-action@v1.0.0
       with:
-          html_file: './info/index.html'
+          path: ./info/index.html
