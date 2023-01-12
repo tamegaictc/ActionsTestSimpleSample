@@ -14,6 +14,12 @@ jobs:
     - name: exec
       run: ./SimpleSample.out
 
+    - name: test
+      run: echo $PWD
+
+    - name: test2
+      run: ls -l ./
+
     - name: HTML Preview
       id: html_preview
       uses: pavi2410/html-preview-action@v2
