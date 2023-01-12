@@ -14,11 +14,8 @@ jobs:
     - name: exec
       run: ./SimpleSample.out
 
-    - name: Get HTML preview link
+    - name: HTML Preview
       id: html_preview
-      uses: ./ # NOTE: replace with the latest version of this Action
-    - uses: github-actions-up-and-running/pr-comment@v1.0.0
+      uses: pavi2410/html-preview-action@v2
       with:
-        html_file: './info/index.html'
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        message: ${{ format('[Click here to preview HTML page in browser]({0})', steps.html_preview.outputs.url) }}
+        html_file: 'https://github.com/tamegaictc/ActionsTestSimpleSample/blob/main/info/index.html'
