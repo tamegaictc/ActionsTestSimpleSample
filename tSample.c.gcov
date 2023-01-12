@@ -1,0 +1,81 @@
+        -:    0:Source:src/tSample.c
+        -:    0:Graph:gen/tSample.gcno
+        -:    0:Data:gen/tSample.gcda
+        -:    0:Runs:1
+        -:    1:Ôªø
+        -:    2:/* #[<PREAMBLE>]#
+        -:    3: * #[<...>]# §´§È #[</...>]# §«∞œ§ﬁ§Ï§ø•≥•·•Û•»§œ ‘Ω∏§∑§ §§§«§Ø§¿§µ§§
+        -:    4: * tecsmerge §À§Ë§Î•ﬁ°º•∏§Àª»Õ—§µ§Ï§ﬁ§π
+        -:    5: *
+        -:    6: * #[</PREAMBLE>]# */
+        -:    7:
+        -:    8:#include <stdio.h>
+        -:    9:#include <string.h>
+        -:   10:#include "tSample_tecsgen.h"
+        -:   11:
+        -:   12:#ifndef E_OK
+        -:   13:#define	E_OK	0		/* Ê≠£Â∏∏ÁµÇ‰∫Ü */
+        -:   14:#define	E_ID	(-18)	/* ‰∏çÊ≠£IDÁï™Âè∑ */
+        -:   15:#endif
+        -:   16:
+        -:   17:
+        -:   18:/* Âèó„ÅëÂè£Èñ¢Êï∞ #_TEPF_# */
+        -:   19:/* #[<ENTRY_PORT>]# eEnt
+        -:   20: * entry port: eEnt
+        -:   21: * signature:  sSample
+        -:   22: * context:    task
+        -:   23: * #[</ENTRY_PORT>]# */
+        -:   24:
+        -:   25:/* #[<ENTRY_FUNC>]# eEnt_sayHello
+        -:   26: * name:         eEnt_sayHello
+        -:   27: * global_name:  tSample_eEnt_sayHello
+        -:   28: * oneway:       false
+        -:   29: * #[</ENTRY_FUNC>]# */
+        -:   30:ER
+        1:   31:eEnt_sayHello(CELLIDX idx, int32_t times)
+        -:   32:{
+        1:   33:	ER		ercd = E_OK;
+        -:   34:	CELLCB	*p_cellcb;
+        -:   35:	if (VALID_IDX(idx)) {
+        1:   36:		p_cellcb = GET_CELLCB(idx);
+        -:   37:	}
+        -:   38:	else {
+        -:   39:		return(E_ID);
+        -:   40:	}
+        -:   41:
+        -:   42:	/* „Åì„Åì„Å´Âá¶ÁêÜÊú¨‰Ωì„ÇíË®òËø∞„Åó„Åæ„Åô */
+        1:   43:	printf( "Sample: " );
+        4:   44:	while( times-- > 0 )
+        3:   45:		printf( "hello " );
+        1:   46:	printf( "\n" );
+        -:   47:
+        1:   48:	return(ercd);
+        -:   49:}
+        -:   50:
+        -:   51:/* #[<ENTRY_FUNC>]# eEnt_howAreYou
+        -:   52: * name:         eEnt_howAreYou
+        -:   53: * global_name:  tSample_eEnt_howAreYou
+        -:   54: * oneway:       false
+        -:   55: * #[</ENTRY_FUNC>]# */
+        -:   56:ER
+        1:   57:eEnt_howAreYou(CELLIDX idx, char_t* buf, int32_t len)
+        -:   58:{
+        1:   59:	ER		ercd = E_OK;
+        -:   60:	CELLCB	*p_cellcb;
+        -:   61:	if (VALID_IDX(idx)) {
+        1:   62:		p_cellcb = GET_CELLCB(idx);
+        -:   63:	}
+        -:   64:	else {
+        -:   65:		return(E_ID);
+        -:   66:	}
+        -:   67:
+        -:   68:	/* „Åì„Åì„Å´Âá¶ÁêÜÊú¨‰Ωì„ÇíË®òËø∞„Åó„Åæ„Åô */
+        1:   69:	strncpy( buf, "Sample: I'm fine!", len );
+        -:   70:
+        1:   71:	return(ercd);
+        -:   72:}
+        -:   73:
+        -:   74:
+        -:   75:/* #[<POSTAMBLE>]#
+        -:   76: *   §≥§Ï§Ë§Í≤º§À»Ûºı§±∏˝¥ÿøÙ§ÚΩÒ§≠§ﬁ§π
+        -:   77: * #[</POSTAMBLE>]#*/

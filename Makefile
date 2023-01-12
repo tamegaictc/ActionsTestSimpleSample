@@ -60,7 +60,7 @@ all : $(TARGET)
 -include $(GEN_DIR)/Makefile.depend
 
 $(TARGET) : $(TIMESTAMP) $(CELLTYPE_COBJS) $(TECSGEN_COBJS) $(PLUGIN_COBJS) $(OTHER_OBJS)
-	$(LD) -o $(TARGET) $(TECSGEN_COBJS) $(CELLTYPE_COBJS) $(PLUGIN_COBJS) $(OTHER_OBJS) $(LDFLAGS)
+	$(LD) -coverage -o $(TARGET) $(TECSGEN_COBJS) $(CELLTYPE_COBJS) $(PLUGIN_COBJS) $(OTHER_OBJS) $(LDFLAGS)
 
 clean :
 	rm -f $(CELLTYPE_COBJS) $(TECSGEN_COBJS) $(PLUGIN_COBJS) $(OTHER_OBJS) $(TARGET)  $(TIMESTAMP)
@@ -74,14 +74,14 @@ $(TIMESTAMP) : $(TECS_IMPORTS)
 
 # generic target for objs
 $(_TECS_OBJ_DIR)%.o : %.c
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -coverage -c $(CFLAGS) -o $@ $<
 
 $(_TECS_OBJ_DIR)tTask.o : tTask.c
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -coverage -c $(CFLAGS) -o $@ $<
  
 $(_TECS_OBJ_DIR)tSample.o : tSample.c
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -coverage -c $(CFLAGS) -o $@ $<
  
 $(_TECS_OBJ_DIR)tSimple.o : tSimple.c
-	$(CC) -c $(CFLAGS) -o $@ $<
+	$(CC) -coverage -c $(CFLAGS) -o $@ $<
  
