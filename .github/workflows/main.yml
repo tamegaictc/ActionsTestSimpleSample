@@ -15,7 +15,13 @@ jobs:
       run: ./SimpleSample.out
 
     - name: HTML Preview
-      id: html_preview
-      uses: pavi2410/html-preview-action@v2
+      uses: markwilson/html2pdf@v1.0
       with:
-        html_file: 'https://github.com/tamegaictc/ActionsTestSimpleSample/blob/main/info/index.html'
+        htmlPath: './info/index.html'
+        pdfName: 'test'
+
+    - name: test
+      run: ls -l
+
+    - name: test2
+      run: ls -l ./info
